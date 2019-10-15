@@ -1,0 +1,20 @@
+{
+  "local": {
+    "BASE_URL": "https://0c3086c4.ngrok.io"
+  },
+  "development": {
+    "BASE_URL": "http://35.173.74.25"
+  },
+  "staging": {
+    "BASE_URL": "https://staging-avantage.grepruby.com"
+  },
+  "production": {
+    "BASE_URL": "https://prod-avantage.grepruby.com"
+  },
+  "pool_production": {
+    "BASE_URL": "https://worldsportsbookcompetition.app"
+  }
+}
+
+//http://52.21.86.211
+//http://18.211.66.9\
