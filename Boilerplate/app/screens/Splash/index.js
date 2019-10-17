@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
+    backgroundColor: 'blue',
   },
   image: {
     width: 320,
