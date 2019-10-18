@@ -92,7 +92,8 @@ class Splash extends Component {
     // User finished the introduction. Show real app through
     // navigation or simply by controlling state
     this.setState({ showRealApp: true });
-    setTimeout(() => this.goToScreen('AuthenticationScreen'), 1000);
+    this.goToScreen('AuthenticationScreen');
+    // setTimeout(() => this.goToScreen('AuthenticationScreen'), 1000);
   }
 
   render() {

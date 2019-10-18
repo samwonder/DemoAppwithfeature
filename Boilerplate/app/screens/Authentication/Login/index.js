@@ -21,6 +21,7 @@ import { InputKey, ReturnKeyType, KeyboardType } from '../../../utils/constants'
 import { showPopupAlert } from '../../../utils/showAlert';
 import { isNetworkConnected } from '../../../utils/utils';
 import { UIColors, fontName, itemSizes, spacing, fontSizes } from '../../../utils/variables';
+import PhoneVerification from '../../PhoneVerification';
 
 const inputWidth = '90%';
 
@@ -104,6 +105,7 @@ class Login extends Component {
       email: '',
       password: '',
       isShowPassword: false,
+      verifyPhoneNumber: true,
     };
   }
 
@@ -168,6 +170,9 @@ class Login extends Component {
   }
 
   loginAction() {
+    this.setState({
+      verifyPhoneNumber: false,
+    })
     const { email, password } = this.state;
     const { userLoginRequest } = this.props;
     const errorMessage = this.getValidationErrorMessage();
@@ -200,7 +205,7 @@ class Login extends Component {
     } = this.state;
     return (
       <SafeAreaView style={styles.container}>
-        <View style={{ alignItems: 'center' }}>
+        {this.state.verifyPhoneNumber ? <View style={{ alignItems: 'center' }}>
           <View style={styles.subContainer}>
             <View style={styles.inputMainView}>
               <Image style={styles.emailIcon} source={images.email} />
@@ -282,7 +287,7 @@ class Login extends Component {
               buttonTitle={'Sign Up'}
             />
           </View>
-        </View>
+        </View> : <PhoneVerification />}
       </SafeAreaView>
     );
   }
