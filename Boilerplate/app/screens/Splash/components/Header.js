@@ -15,15 +15,12 @@ const styles = StyleSheet.create({
 });
 
 const Header = props => (
-  <Animated.Image
-    style={[
-      styles.splashImg,
-      {
-        width: props.splashWidth,
-        height: props.splashHeight,
-      }]
-    }
-    source={images.contest}
+  <Image
+    style={{
+        width: '100%',
+        height: '100%',
+      }}
+    source={images.splash}
   />
 );
 

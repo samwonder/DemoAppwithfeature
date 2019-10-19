@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -26,7 +26,7 @@ import { images } from '../../assets/images';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: UIColors.newAppButtonGreenBackgroundColor,
+    backgroundColor: UIColors.defaultWhite,
   },
   navigationView: {
     height: navigationHeight,
@@ -35,7 +35,9 @@ const styles = StyleSheet.create({
   },
   componentView: {
     flex: 5,
-    backgroundColor: UIColors.newAppButtonGreenBackgroundColor,
+    backgroundColor: UIColors.defaultWhite,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   headerPortraitView: {
     flex: 9,
@@ -122,20 +124,19 @@ class Authentication extends Component {
         >
           <View style={{
             flex: 1,
-            backgroundColor: UIColors.newAppButtonGreenBackgroundColor,
+            backgroundColor: UIColors.defaultWhite,
             height: screenHeight,
             width: '100%',
           }}
           >
-            <View style={[styles.navigationView, (isIphoneX && screenProps.orientation !== 'LANDSCAPE') && { marginTop: 40 }]}>
-              <View style={{flex: 2, height: navigationHeight }} />
+            <View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
+              <Image source={images.LogoWithText} style={{height: 200, width: '80%'}}></Image>
             </View>
-            <View style={styles.componentView}>
-              {this.renderCurrentView(currentAuthWelcomeView)}
+            <View style={{flex: 3, backgroundColor: 'green'}}>
+              <View style={styles.componentView}>
+                {this.renderCurrentView(currentAuthWelcomeView)}
+              </View>
             </View>
-            {/* <Footer
-              openPrivacyPolicy={this.openPrivacyPolicy}
-            /> */}
           </View>
         </KeyboardAwareScrollView>
         {isLoading && <Loader isAnimating={isLoading} />}

@@ -23,22 +23,23 @@ import { isNetworkConnected } from '../../../utils/utils';
 import { UIColors, fontName, itemSizes, spacing, fontSizes } from '../../../utils/variables';
 import PhoneVerification from '../../PhoneVerification';
 
-const inputWidth = '90%';
+const inputWidth = '100%';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: spacing.extraSmall,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // margin: spacing.extraSmall,
+    // backgroundColor: 'red',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
   subContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(255,255,255, 0.8)',
+    backgroundColor: 'white',
     padding: spacing.large,
-    borderRadius: 10,
-    width: '95%',
+    // borderRadius: 10,
+    width: '100%',
   },
   emailIcon: {
     width: itemSizes.iconMedium,
@@ -49,52 +50,58 @@ const styles = StyleSheet.create({
   },
   inputMainView: {
     alignSelf: 'stretch',
-    height: itemSizes.defaultButtonHeight,
+    height: itemSizes.itemWidth,
     flexDirection: 'row',
     backgroundColor: 'transparent',
     alignItems: 'center',
   },
   textInput: {
-    height: itemSizes.defaultButtonHeight,
+    height: itemSizes.itemWidth,
     fontSize: fontSizes.small,
     marginLeft: spacing.semiMedium,
     color: UIColors.secondaryText,
-    borderBottomWidth: 1,
+    // borderBottomWidth: 1,
     fontFamily: fontName.sourceSansProRegular,
   },
   textInputView: {
     alignSelf: 'stretch',
     width: inputWidth,
+    backgroundColor: '#f7f7f7',
+    marginTop: 5,
+    borderRadius: 10,
   },
   forgotPasswordContainer: {
     alignSelf: 'stretch',
     height: itemSizes.defaultButtonHeight,
-    justifyContent: 'center',
-    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    // alignItems: 'flex-end',
     marginTop: spacing.mediumLarge,
+    // backgroundColor: 'red',
+    flexDirection: 'row',
   },
   forgotPasswordButton: {
     height: itemSizes.iconSmall,
     width: itemSizes.iconSmall,
-    marginRight: spacing.extraSmall,
+    // marginRight: spacing.extraSmall,
     tintColor: UIColors.newAppYellowColor,
   },
   forgotPasswordText: {
     alignSelf: 'flex-end',
     marginRight: spacing.small,
-    color: UIColors.defaultBlack,
-    fontSize: fontSizes.extraSmall,
-    fontFamily: fontName.sourceSansProSemiBold,
+    color: '#176799',
+    fontSize: 16,
+    // fontFamily: fontName.sourceSansProSemiBold,
   },
   buttonFlex: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
+    alignItems: 'center',
 
   },
   authButton: {
-    paddingVertical: spacing.small,
-    paddingHorizontal: spacing.large,
-    backgroundColor: UIColors.newAppButtonGreenBackgroundColor,
+    paddingVertical: spacing.medium,
+    paddingHorizontal: '35%',
+    backgroundColor: '#eac447',
+    borderRadius: 10,
   },
 });
 
@@ -208,7 +215,7 @@ class Login extends Component {
         {this.state.verifyPhoneNumber ? <View style={{ alignItems: 'center' }}>
           <View style={styles.subContainer}>
             <View style={styles.inputMainView}>
-              <Image style={styles.emailIcon} source={images.email} />
+              {/* <Image style={styles.emailIcon} source={images.email} /> */}
               <CustomTextInput
                 textInput={StyleSheet.flatten(styles.textInput)}
                 inputView={StyleSheet.flatten(styles.textInputView)}
@@ -226,7 +233,7 @@ class Login extends Component {
               />
             </View>
             <View style={styles.inputMainView}>
-              <Image style={styles.emailIcon} source={images.passwordIcon} />
+              {/* <Image style={styles.emailIcon} source={images.passwordIcon} /> */}
               <CustomTextInput
                 textInput={StyleSheet.flatten(styles.textInput)}
                 inputView={StyleSheet.flatten(styles.textInputView)}
@@ -256,35 +263,37 @@ class Login extends Component {
                     alert('Please enter a valid email id')
                   }
                 }}
-                style={styles.buttonFlex}
+                // style={styles.buttonFlex}
               >
-                <Image
+                {/* <Image
                   source={images.questionIcon}
                   style={styles.forgotPasswordButton}
-                />
+                /> */}
                 <Text style={styles.forgotPasswordText}>
                   {authenticationLocalizedString.forgotPassword}
                 </Text>
               </TouchableOpacity>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ color: '#707070', fontSize: 18, marginRight: 5}}>Not a member?</Text>
+            <CustomButton
+              buttonStyle={{}}
+              textStyle={{ color: '#176799', fontSize: 18 }}
+              onPress={this.props.onPressSignUp}
+              buttonTitle={'JOIN'}
+            />
+          </View>
             </View>
+          </View>
+          <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
             <CustomButton
               buttonStyle={styles.authButton}
               onPress={() => this.loginAction()}
               buttonTitle={authenticationLocalizedString.login}
               textStyle={{
                 fontSize: fontSizes.small,
-                color: UIColors.defaultWhite,
-                fontFamily: fontName.sourceSansProRegular,
+                color: UIColors.defaultBlack,
+                fontFamily: fontName.sourceSansProSemiBold,
               }}
-            />
-          </View>
-          <View style={{ flexDirection: 'row', marginTop: 15 }}>
-            <Text style={{ color: 'white', fontSize: 16, marginRight: 5, lineHeight: 25 }}>Don't have an account?</Text>
-            <CustomButton
-              buttonStyle={{}}
-              textStyle={{ fontFamily: fontName.sourceSansProSemiBold, color: UIColors.focused, fontSize: 18 }}
-              onPress={this.props.onPressSignUp}
-              buttonTitle={'Sign Up'}
             />
           </View>
         </View> : <PhoneVerification />}

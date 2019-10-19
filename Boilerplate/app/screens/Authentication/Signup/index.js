@@ -27,25 +27,25 @@ import {
 import { UIColors, fontName, itemSizes, spacing, fontSizes } from '../../../utils/variables';
 
 const buttonWidth = responsiveSize(70);
-const inputWidth = '90%';
+const inputWidth = '100%';
 
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     // backgroundColor: 'red',
-    margin: spacing.extraSmall,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // margin: spacing.extraSmall,
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
   subContainer: {
      // flex: 3.5,
      justifyContent: 'center',
      alignItems: 'center',
-     backgroundColor: 'rgba(255,255,255, 0.8)',
+    //  backgroundColor: 'rgba(255,255,255, 0.8)',
      padding: spacing.large,
-     borderRadius: 10,
-     width: '95%',
+    //  borderRadius: 10,
+     width: '100%',
      // maxWidth: 500,
   },
   emailIcon: {
@@ -57,43 +57,36 @@ const styles = StyleSheet.create({
   },
   inputMainView: {
     alignSelf: 'stretch',
-    height: itemSizes.defaultButtonHeight,
+    height: itemSizes.itemWidth,
     flexDirection: 'row',
     backgroundColor: 'transparent',
     alignItems: 'center',
   },
   textInput: {
-    height: itemSizes.defaultButtonHeight,
+    height: itemSizes.itemWidth,
     fontSize: fontSizes.small,
     marginLeft: spacing.semiMedium,
     color: UIColors.secondaryText,
-    borderBottomWidth: 1,
+    // borderBottomWidth: 1,
     fontFamily: fontName.sourceSansProRegular,
   },
   textInputView: {
     alignSelf: 'stretch',
     width: inputWidth,
-  },
-  showOptionalButton: {
-    width: buttonWidth,
-    height: itemSizes.defaultSmallButtonHeight,
-    position: 'absolute',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
-    right: spacing.extraExtraLarge,
-  },
-  changeQuestionText: {
-    color: UIColors.focused,
-    fontSize: fontSizes.extraExtraSmall,
-    textAlign: 'right',
-    paddingRight: spacing.extraExtraSmall,
-    fontFamily: fontName.sourceSansProRegular,
+    backgroundColor: '#f7f7f7',
+    marginTop: 5,
+    borderRadius: 10,
   },
   authButton: {
-    paddingVertical: spacing.small,
-    paddingHorizontal: spacing.large,
-    backgroundColor: UIColors.newAppButtonGreenBackgroundColor,
-    marginTop: spacing.large,
+    // paddingVertical: spacing.small,
+    // paddingHorizontal: spacing.large,
+    // backgroundColor: UIColors.newAppButtonGreenBackgroundColor,
+    // marginTop: spacing.large,
+    paddingVertical: spacing.medium,
+    paddingHorizontal: '35%',
+    backgroundColor: '#eac447',
+    borderRadius: 10,
+    height: 50
   },
 });
 
@@ -230,7 +223,7 @@ class Signup extends Component {
         <View style={{ alignItems: 'center' }}>
           <View style={styles.subContainer}>
             <View style={styles.inputMainView}>
-              <Image style={styles.emailIcon} source={images.emailIcon} />
+              {/* <Image style={styles.emailIcon} source={images.emailIcon} /> */}
               <CustomTextInput
                 textInput={StyleSheet.flatten(styles.textInput)}
                 inputView={styles.textInputView}
@@ -248,7 +241,7 @@ class Signup extends Component {
               />
             </View>
             <View style={styles.inputMainView}>
-              <Image style={styles.emailIcon} source={images.userName} />
+              {/* <Image style={styles.emailIcon} source={images.userName} /> */}
               <CustomTextInput
                 textInput={StyleSheet.flatten(styles.textInput)}
                 inputView={styles.textInputView}
@@ -265,7 +258,7 @@ class Signup extends Component {
               />
             </View>
             <View style={styles.inputMainView}>
-              <Image style={styles.emailIcon} source={images.passwordIcon} />
+              {/* <Image style={styles.emailIcon} source={images.passwordIcon} /> */}
               <CustomTextInput
                 textInput={StyleSheet.flatten(styles.textInput)}
                 inputView={styles.textInputView}
@@ -280,40 +273,43 @@ class Signup extends Component {
                 onChangeText={value => this.onChangePasswordText(value)}
                 onSubmitEditing={key => this.onSubmitEditing(key)}
               />
-              <ToggleIcon
+              {/* <ToggleIcon
                 isShowPassword={isShowPassword}
                 showPassowrdText={() => this.showPassowrdText()}
                 screenOrientation={screenOrientation}
-              />
+              /> */}
             </View>
-            {/* <AuthOptions
-            screenOrientation={screenOrientation.orientation}
-            title={authenticationLocalizedString.continueWith}
-            facebookAction={() => facebookAction()}
-            googleAction={() => googleAction()}
-            userAction={() => this.signupAction()}
-            buttonTitle={authenticationLocalizedString.register}
-          /> */}
-            <CustomButton
-              buttonStyle={styles.authButton}
-              onPress={() => this.signupAction()}
-              buttonTitle={authenticationLocalizedString.register}
-              textStyle={{
-                fontSize: fontSizes.small,
-                color: UIColors.defaultWhite,
-                fontFamily: fontName.sourceSansProRegular,
-              }}
-            />
+
           </View>
 
         </View>
-        <View style={{ flexDirection: 'row', marginTop: 15 }}>
-          <Text style={{ color: 'white', fontSize: 16, marginRight: 5, lineHeight: 25 }}>Already have an account?</Text>
+        <View style={{ paddingHorizontal: spacing.large, flexDirection: 'row', marginTop: 10 , justifyContent: 'space-between'}}>
+        <CustomButton
+              buttonStyle={{}}
+              textStyle={{ fontFamily: fontName.sourceSansProSemiBold, color: '#176799', fontSize: 18 }}
+              onPress={() => alert('WIP')}
+              buttonTitle={'Term & Privacy'}
+            />
+          <View style={{flexDirection: 'row'}}>
+            <Text style={{ color: '#707070', fontSize: 16, marginRight: 5, lineHeight: 25 }}>Already a member?</Text>
+            <CustomButton
+              buttonStyle={{}}
+              textStyle={{ fontFamily: fontName.sourceSansProSemiBold, color: '#176799', fontSize: 18 }}
+              onPress={this.props.onPressSignIn}
+              buttonTitle={'LOGIN'}
+            />
+          </View>
+        </View>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <CustomButton
-            buttonStyle={{}}
-            textStyle={{ fontFamily: fontName.sourceSansProSemiBold, color: UIColors.focused, fontSize: 18 }}
-            onPress={this.props.onPressSignIn}
-            buttonTitle={'Sign In'}
+            buttonStyle={styles.authButton}
+            onPress={() => this.signupAction()}
+            buttonTitle={authenticationLocalizedString.register}
+            textStyle={{
+              fontSize: fontSizes.small,
+              color: UIColors.defaultBlack,
+              fontFamily: fontName.sourceSansProSemiBold,
+            }}
           />
         </View>
       </SafeAreaView>

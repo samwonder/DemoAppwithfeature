@@ -26,10 +26,7 @@ const SplashContainer = props => (
   <View style={styles.backgroundImage}>
     <View style={styles.splashIconView}>
       <Animated.View>
-        { !props.showSecondIcon
-        ? <Logo />
-        : <Header {...props} />
-       }
+        <Header />
       </Animated.View>
     </View>
   </View>
