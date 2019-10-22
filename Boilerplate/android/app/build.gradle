@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-contacts')
     implementation project(':react-native-orientation')
     implementation project(':react-native-localization')
     implementation project(':react-native-gesture-handler')

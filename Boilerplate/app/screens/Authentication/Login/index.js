@@ -22,6 +22,7 @@ import { showPopupAlert } from '../../../utils/showAlert';
 import { isNetworkConnected } from '../../../utils/utils';
 import { UIColors, fontName, itemSizes, spacing, fontSizes } from '../../../utils/variables';
 import PhoneVerification from '../../PhoneVerification';
+import Navigation from '../../../navigator/NavigationService';
 
 const inputWidth = '100%';
 
@@ -177,21 +178,22 @@ class Login extends Component {
   }
 
   loginAction() {
-    this.setState({
-      verifyPhoneNumber: false,
-    })
-    const { email, password } = this.state;
-    const { userLoginRequest } = this.props;
-    const errorMessage = this.getValidationErrorMessage();
-    if (errorMessage) {
-      showPopupAlert(errorMessage);
-    } else {
-      isNetworkConnected((isConnected) => {
-        if (isConnected) {
-          userLoginRequest(email, password);
-        }
-      });
-    }
+    Navigation.sharedInstance().resetRouteName('ContactListScreen');
+    // this.setState({
+    //   verifyPhoneNumber: false,
+    // });
+    // const { email, password } = this.state;
+    // const { userLoginRequest } = this.props;
+    // const errorMessage = this.getValidationErrorMessage();
+    // if (errorMessage) {
+    //   showPopupAlert(errorMessage);
+    // } else {
+    //   isNetworkConnected((isConnected) => {
+    //     if (isConnected) {
+    //       userLoginRequest(email, password);
+    //     }
+    //   });
+    // }
   }
 
   showPassowrdText() {

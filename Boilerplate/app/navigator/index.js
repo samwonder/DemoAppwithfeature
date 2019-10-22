@@ -2,7 +2,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Splash from '../screens/Splash';
 import HomeScreen from '../screens/Home';
 import AuthenticationScreen from '../screens/Authentication';
-
+import ContactListScreen from '../screens/ContactList';
 
 import { responsiveSize } from '../utils/utils';
 
@@ -47,6 +47,14 @@ import { responsiveSize } from '../utils/utils';
     AuthenticationScreen: {
       screen: AuthenticationScreen,
       key: 'AuthenticationScreen',
+      navigationOptions: {
+        header: null,
+        gesturesEnabled: false,
+      },
+    },
+    ContactListScreen: {
+      screen: ContactListScreen,
+      key: 'ContactListScreen',
       navigationOptions: {
         header: null,
         gesturesEnabled: false,
