@@ -15,6 +15,7 @@ import ListItem from "./components/ListItem";
 import Avatar from "./components/Avatar";
 import SearchBar from "./components/SearchBar";
 import HeaderView from './components/Header';
+import Navigation from '../../navigator/NavigationService';
 
 class ContactList extends Component {
   constructor(props) {
@@ -74,12 +75,15 @@ class ContactList extends Component {
       });
     }
   }
+  gotoHome() {
+    Navigation.sharedInstance().resetRouteName('HomeScreen');
+  }
 
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={{height: 90, width: '100%'}} >
-          <HeaderView />
+          <HeaderView gotoHome={this.gotoHome}/>
         </View>
         <View
           style={{
