@@ -15,8 +15,8 @@ const HeaderView = (props) => {
       <View style={{flex: 1, right: 20, justifyContent: 'center', alignItems: 'center', position: 'absolute'}}>
       <TouchableOpacity
         style={{padding: 10}}
-        onPress={() => alert('WIP')}
-        // onPress={() => props.showPassowrdText()}
+        // onPress={() => alert('WIP')}
+        onPress={() => props.gotoHome()}
       >
         <Text style={{fontSize: 20, color: 'gray',}}>Skip</Text>
       </TouchableOpacity>

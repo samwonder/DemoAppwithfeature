@@ -103,9 +103,7 @@ class Splash extends Component {
   _renderItem = ({ item }) => {
     return (
       <View style={styles.mainContent}>
-        {/* <Text style={styles.title}>{item.title}</Text> */}
-        <Image style={{height, width}} source={item.image} resizeMode="contain"/>
-        {/* <Text style={styles.text}>{item.text}</Text> */}
+        <Image style={{height, width}} source={item.image}/>
       </View>
     );
   }
@@ -122,7 +120,7 @@ class Splash extends Component {
     if (this.state.showRealApp) {
       return (
         <View style={{ flex: 1 }}>
-          <ImageBackground source={images.splash} style={{width: '100%', height: '100%'}}></ImageBackground>
+          <ImageBackground source={images.splash} style={{flex: 1, height: '100%'}}></ImageBackground>
         </View>
       );
     } else {
