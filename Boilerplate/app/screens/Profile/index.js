@@ -9,16 +9,13 @@ import PropTypes from 'prop-types';
 import {
   View,
   StyleSheet,
-  TextInput,
   Text,
-  TouchableOpacity,
-  FlatList,
 } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import { images } from '../../assets/images';
-import TabBar from '../TabBar';
-
-
+import Description from './components/description';
+import UserDetail from './components/userDetail';
+import { ScrollView } from 'react-native-gesture-handler';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -64,37 +61,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
-  },
-];
-
-function Item({ title }) {
-  return (
-    <View style={{height: 160, flex: 1,}}>
-      <Text style={styles.title}>{title}</Text>
-      <View style={{ flex: 4, backgroundColor: 'red'}}></View>
-      <View style={{ flex: 4, backgroundColor: 'green'}}></View>
-      <View style={{ flex: 2, backgroundColor: 'red'}}></View>
-    </View>
-  );
-}
-
-class Login extends Component {
+class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      description: "",
     };
   }
 
@@ -103,19 +73,49 @@ class Login extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <TabBar />
+      <View style={{ flex: 1, }}>
+        <View style={styles.profileView}>
+          <View style={{ flex: 3, flexDirection: 'row'}}>
+          <View style={{ flex: 2}}></View>
+          <View style={{ flex: 6 }}>
+            <Text style={styles.headerText}>
+              Profile
+            </Text>
+          </View>
+          <View style={{ flex: 2}}>
+          </View>
+          </View>
+          <View style={{ flex: 4, justifyContent: 'center', alignItems: 'center'}}>
+          <View style={{width: '30%', height: '100%', backgroundColor: 'blue'}}></View>
+          </View>
+          <View style={{ flex: 3 }}>
+          <Text style={styles.userName}>
+            Sam Wonder
+          </Text>
+          <Text style={styles.ratingView}>
+            4.5 *
+        </Text>
+          </View>
+        </View>
+        <View style={{ flex: 6, margin: 5}}>
+          <ScrollView>
+          <Description />
+          <Description />
+          <UserDetail />
+          </ScrollView>
+        </View>
+
       </View>
     );
   }
 }
 
-Login.propTypes = {
+Profile.propTypes = {
   navigation: PropTypes.objectOf(PropTypes.any),
 };
 
-Login.defaultProps = {
+Profile.defaultProps = {
   navigation: {},
 };
 
-export default Login;
+export default Profile;

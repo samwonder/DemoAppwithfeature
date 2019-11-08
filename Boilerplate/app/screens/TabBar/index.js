@@ -15,6 +15,8 @@ import {
 } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import { images } from '../../assets/images';
+import ProfileScreen from '../Profile';
+import Notification from '../Notification';
 
 const styles = StyleSheet.create({
   container: {
@@ -78,10 +80,8 @@ class ProfileOne extends Component {
 class ProfileTwo extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          P2
-        </Text>
+      <View style={{width: '100%', height: '100%'}}>
+        <Notification />
       </View>
     )
   }
@@ -89,10 +89,8 @@ class ProfileTwo extends Component {
 class ProfileThree extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          P3
-        </Text>
+      <View style={{width: '100%', height: '100%'}}>
+        <ProfileScreen />
       </View>
     )
   }
@@ -113,7 +111,7 @@ class Tabbar extends Component {
   render() {
     return (
       // <View style={{ flex: 1, backgroundColor: 'blue' }}>
-        <TabNavigator>
+        <TabNavigator style={{flex: 1}}>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'home'}
             title="Home"

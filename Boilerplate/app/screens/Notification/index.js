@@ -16,8 +16,6 @@ import {
 } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import { images } from '../../assets/images';
-import TabBar from '../TabBar';
-
 
 const styles = StyleSheet.create({
   container: {
@@ -63,7 +61,6 @@ const styles = StyleSheet.create({
     }
   }
 });
-
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -81,16 +78,31 @@ const DATA = [
 
 function Item({ title }) {
   return (
-    <View style={{height: 160, flex: 1,}}>
-      <Text style={styles.title}>{title}</Text>
-      <View style={{ flex: 4, backgroundColor: 'red'}}></View>
-      <View style={{ flex: 4, backgroundColor: 'green'}}></View>
-      <View style={{ flex: 2, backgroundColor: 'red'}}></View>
+    <View style={{height: 140, flex: 1, margin: 5, padding: 5, backgroundColor: 'lightgray', borderRadius: 5}}>
+      <View style={{ flex: 4}}>
+        <Text style={{color: 'gray', fontSize: 14}}>Pick Up Oct 03</Text>
+        <Text style={{ fontSize: 20}}>Dallas, TX 78623</Text>
+      </View>
+      <View style={{ flex: 4, flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View>
+          <Text style={{color: 'gray', fontSize: 15}}>Drop Off Oct 05</Text>
+          <Text style={{ fontSize: 20}}>Dallas, TX 78620</Text>
+        </View>
+        <View>
+          <Text style={{ fontSize: 14, color: 'red'}}>On Route</Text>
+          <Text style={{ fontSize: 20}}>$ 5000.00</Text>
+        </View>
+      </View>
+      <View style={{ flex: 2, flexDirection: 'row', top: 5}}>
+        <Text style={{ fontSize: 14, color: 'gray', marginRight: 5}}>Trailer: Spread Axle</Text>
+        <Text style={{color: 'gray', fontSize: 14, marginRight: 5}}>Live Stock: 10 fats</Text>
+        <Text style={{color: 'gray', fontSize: 14}}>Waight: 23k lbs</Text>
+      </View>
     </View>
   );
 }
 
-class Login extends Component {
+class Notification extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -104,18 +116,25 @@ class Login extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <TabBar />
+        <View style={{height: 60, backgroundColor: 'rgb(66,63,52)', justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={{color: 'white', fontSize: 18}}>Notifications</Text>
+        </View>
+        <FlatList
+          data={DATA}
+          renderItem={({ item }) => <Item title={item.title} />}
+          keyExtractor={item => item.id}
+        />
       </View>
     );
   }
 }
 
-Login.propTypes = {
+Notification.propTypes = {
   navigation: PropTypes.objectOf(PropTypes.any),
 };
 
-Login.defaultProps = {
+Notification.defaultProps = {
   navigation: {},
 };
 
-export default Login;
+export default Notification;
