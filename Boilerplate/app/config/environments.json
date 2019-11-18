@@ -1,20 +1,14 @@
 {
   "local": {
-    "BASE_URL": "https://0c3086c4.ngrok.io"
+    "BASE_URL": "http://thecloudconsult.com/"
   },
   "development": {
-    "BASE_URL": "http://35.173.74.25"
+    "BASE_URL": "http://thecloudconsult.com/"
   },
   "staging": {
-    "BASE_URL": "https://staging-avantage.grepruby.com"
+    "BASE_URL": "http://thecloudconsult.com/"
   },
   "production": {
-    "BASE_URL": "https://prod-avantage.grepruby.com"
-  },
-  "pool_production": {
-    "BASE_URL": "https://worldsportsbookcompetition.app"
+    "BASE_URL": "http://thecloudconsult.com/"
   }
 }
-
-//http://52.21.86.211
-//http://18.211.66.9\

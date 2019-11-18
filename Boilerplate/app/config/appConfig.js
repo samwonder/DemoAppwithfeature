@@ -12,8 +12,6 @@ export const getBaseUrl = function getBaseUrl() {
       return Environments.staging.BASE_URL;
     case 'production':
       return Environments.production.BASE_URL;
-    case 'pool_production':
-      return Environments.pool_production.BASE_URL;
     default:
       break;
   }
